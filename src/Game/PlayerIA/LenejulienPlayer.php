@@ -32,6 +32,8 @@ class LenejulienPlayer extends Player
         $allOpponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
         $roundtest = $this->result->getNbRound();
 
+
+        //for ()
         
         if ($roundtest > 1){
           if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
@@ -42,18 +44,18 @@ class LenejulienPlayer extends Player
             }
           } else if ($allMySideLastScore[-1] < $allOpponentSideLastScore[-1]){
             if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
-              return $allMySideLastScore[-2];
-            } else {
               return $allMySideLastScore[-1];
+            } else {
+              return $allMySideLastScore[-2];
             }
          }
         }
 
+        for
+
         if ($mySideLastChoice != 0){
         if ($mySideLastScore > $opponentSideLastScore){
           return $mySideLastChoice;
-        } elseif ($mySideLastScore == $opponentSideLastScore) {
-          return parent::paperChoice();
         } else {
           return $mySideLastChoice;
         }
@@ -83,6 +85,6 @@ class LenejulienPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
         
-        return parent::paperChoice();            
+        return parent::scissorsChoice();            
   }
 };
