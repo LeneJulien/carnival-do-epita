@@ -15,6 +15,10 @@ class LenejulienPlayer extends Player
     protected $opponentSide;
     protected $result;
 
+    public function returnReverse($me, $opp){
+      return $me > $opp;
+    }
+
     public function getChoice()
     {
 
@@ -24,15 +28,26 @@ class LenejulienPlayer extends Player
         $opponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
         $allMyLastChoice =  $this->result->getChoicesFor($this->mySide);
         $allOppenentChoice = $this->result->getChoicesFor($this->opponentSide);
-        $allMyLastScore = $this->result->getLastScoreFor($this->mySide);
-        $allOppenentScore = $this->result->getLastScoreFor($this->opponentSide);
+        $allMySideLastScore = $this->result->getLastScoreFor($this->mySide);
+        $allOpponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
         $roundtest = $this->result->getNbRound();
 
-        #if ($roundtest > 1){
-         # if ($allMySideLastScore > $allOpponentSideLastScore){
-          #  return 
-          #}
-        #}
+        
+        if ($roundtest > 1){
+          if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
+             if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
+               return $allMySideLastScore[-1];
+             } else {
+              return $allMySideLastScore[-2];
+            }
+          } else if ($allMySideLastScore[-1] < $allOpponentSideLastScore[-1]){
+            if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
+              return $allMySideLastScore[-2];
+            } else {
+              return $allMySideLastScore[-1];
+            }
+         }
+        }
 
         if ($mySideLastChoice != 0){
         if ($mySideLastScore > $opponentSideLastScore){
