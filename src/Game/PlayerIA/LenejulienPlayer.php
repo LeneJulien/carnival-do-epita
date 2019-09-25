@@ -22,12 +22,23 @@ class LenejulienPlayer extends Player
         $opponentSideLastChoice = $this->result->getLastChoiceFor($this->opponentSide);
         $mySideLastScore = $this->result->getLastScoreFor($this->mySide);
         $opponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
+        $allMyLastChoice =  $this->result->getChoicesFor($this->mySide);
+        $allOppenentChoice = $this->result->getChoicesFor($this->opponentSide);
+        $allMyLastScore = $this->result->getLastScoreFor($this->mySide);
+        $allOppenentScore = $this->result->getLastScoreFor($this->opponentSide);
+        $roundtest = $this->result->getNbRound();
+
+        #if ($roundtest > 1){
+         # if ($allMySideLastScore > $allOpponentSideLastScore){
+          #  return 
+          #}
+        #}
 
         if ($mySideLastChoice != 0){
         if ($mySideLastScore > $opponentSideLastScore){
-          return $opponentSideLastChoice;
-        } elseif ($mySideLastScore == $opponentSideLastScore) {
           return $mySideLastChoice;
+        } elseif ($mySideLastScore == $opponentSideLastScore) {
+          return parent::paperChoice();
         } else {
           return $mySideLastChoice;
         }
