@@ -29,10 +29,10 @@ class LenejulienPlayer extends Player
         $roundtest = $this->result->getNbRound();
         $rock = 0;
         $scissors = 0;
-        $player = 0;
+        $paper = 0;
 
         # regarde la matière qui gagne le plus pour la renvoyer
-        for ($i = $roundtest; $i > 0; --$i){
+        for ($i = 0; $i < $roundtest; ++$i){
           if ($allMySideLastScore[$i] > $allOpponentSideLastScore[$i]){
             if ($allMyLastChoice[$i] == 'scissors'){
               ++$scissors;
@@ -40,6 +40,14 @@ class LenejulienPlayer extends Player
               ++$paper;
             }else {
               ++$rock;
+            }
+          } else {
+            if ($allMyLastChoice[$i] == 'scissors'){
+              --$scissors;
+            } elseif ($allMyLastChoice[$i] == 'paper'){
+              --$paper;
+            }else {
+              --$rock;
             }
           } 
         }
