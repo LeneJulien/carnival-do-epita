@@ -23,12 +23,13 @@ class LenejulienPlayer extends Player
         $mySideLastScore = $this->result->getLastScoreFor($this->mySide);
         $opponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
 
-        //return $mySideLastChoice; 
         if ($mySideLastChoice != 0){
         if ($mySideLastScore > $opponentSideLastScore){
+          return $opponentSideLastChoice;
+        } elseif ($mySideLastScore == $opponentSideLastScore) {
           return $mySideLastChoice;
         } else {
-          return $opponentSideLastChoice;
+          return $mySideLastChoice;
         }
       }
 
