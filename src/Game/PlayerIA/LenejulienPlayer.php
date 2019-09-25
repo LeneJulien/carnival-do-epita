@@ -15,10 +15,6 @@ class LenejulienPlayer extends Player
     protected $opponentSide;
     protected $result;
 
-    public function returnReverse($me, $opp){
-      return $me > $opp;
-    }
-
     public function getChoice()
     {
 
@@ -33,7 +29,9 @@ class LenejulienPlayer extends Player
         $roundtest = $this->result->getNbRound();
 
 
-        //for ()
+        #for ($i = $roundtest; $i > 0; --$i){
+
+        #}
         
         if ($roundtest > 1){
           if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
@@ -50,8 +48,6 @@ class LenejulienPlayer extends Player
             }
          }
         }
-
-        for
 
         if ($mySideLastChoice != 0){
         if ($mySideLastScore > $opponentSideLastScore){
