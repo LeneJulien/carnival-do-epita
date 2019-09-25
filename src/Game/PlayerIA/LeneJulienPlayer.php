@@ -11,19 +11,12 @@ use Hackathon\Game\Result;
  */
 class PaperPlayer extends Player
 {
-    protected $mySideScore;
-    protected $opponentSideScore;
+    protected $mySide;
+    protected $opponentSide;
     protected $result;
 
     public function getChoice()
     {
-
-      $this->result->getLastScoreFor($this->mySideScore)
-      $this->result->getLastScoreFor($this->opponentSideScore)
-      if ($mySide > $opponentSide){
-        if ()
-      }
-
         // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
         // How to get the opponent Last Choice ?    $this->result->getLastChoiceFor($this->opponentSide) -- if 0 (first round)
@@ -47,8 +40,6 @@ class PaperPlayer extends Player
         // -------------------------------------    -----------------------------------------------------
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
-
-
         
         return parent::paperChoice();            
   }
