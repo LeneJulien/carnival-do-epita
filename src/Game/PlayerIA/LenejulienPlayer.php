@@ -17,7 +17,7 @@ class LenejulienPlayer extends Player
 
     public function getChoice()
     {
-
+        # Initialize all variables
         $mySideLastChoice = $this->result->getLastChoiceFor($this->mySide);
         $opponentSideLastChoice = $this->result->getLastChoiceFor($this->opponentSide);
         $mySideLastScore = $this->result->getLastScoreFor($this->mySide);
@@ -31,17 +31,19 @@ class LenejulienPlayer extends Player
         $scissors = 0;
         $player = 0;
 
+        # regarde la matière qui gagne le plus pour la renvoyer
         for ($i = $roundtest; $i > 0; --$i){
-          if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
-            if ($allMyLastChoice == 'scissors'){
+          if ($allMySideLastScore[$i] > $allOpponentSideLastScore[$i]){
+            if ($allMyLastChoice[$i] == 'scissors'){
               ++$scissors;
-            } elseif ($allMyLastChoice == 'paper'){
+            } elseif ($allMyLastChoice[$i] == 'paper'){
               ++$paper;
             }else {
               ++$rock;
             }
-          }
+          } 
         }
+
         if ($rock > $scissors && $rock > $paper){
           return parent::rockChoice();
         }
