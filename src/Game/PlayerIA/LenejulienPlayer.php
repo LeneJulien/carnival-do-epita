@@ -30,7 +30,7 @@ class LenejulienPlayer extends Player
         $rock = 0;
         $scissors = 0;
         $paper = 0;
-
+/*
         # regarde la matière qui gagne le plus pour la renvoyer
         for ($i = 0; $i < $roundtest; ++$i){
           if ($allMySideLastScore[$i] > $allOpponentSideLastScore[$i]){
@@ -59,26 +59,32 @@ class LenejulienPlayer extends Player
           return parent::scissorsChoice();
         }
         return parent::paperChoice();
+*/
         
-        /*if ($roundtest > 1){
+
+        if ($roundtest > 1){
           if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
              if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
                return $allMySideLastScore[-1];
-             } else {
+             } else if ($allMySideLastScore[-2] < $allOpponentSideLastScore[-2]) {
               return $allMySideLastScore[-2];
+            } else {
+              return parent::paperChoice();
             }
           } else if ($allMySideLastScore[-1] < $allOpponentSideLastScore[-1]){
             if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
               return $allMySideLastScore[-1];
-            } else {
+            } else if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
               return $allMySideLastScore[-2];
+            } else {
+              return parent::paperChoice();
             }
          }
         }
 
         if ($mySideLastChoice != 0){
         if ($mySideLastScore > $opponentSideLastScore){
-          return $mySideLastChoice;
+          return $opponentSideLastChoice;
         } else {
           return $mySideLastChoice;
         }
@@ -108,6 +114,6 @@ class LenejulienPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
         
-        return parent::scissorsChoice();      */      
+        return parent::scissorsChoice();
   }
 };
