@@ -27,13 +27,30 @@ class LenejulienPlayer extends Player
         $allMySideLastScore = $this->result->getLastScoreFor($this->mySide);
         $allOpponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
         $roundtest = $this->result->getNbRound();
+        $rock = 0;
+        $scissors = 0;
+        $player = 0;
 
-
-        #for ($i = $roundtest; $i > 0; --$i){
-
-        #}
+        for ($i = $roundtest; $i > 0; --$i){
+          if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
+            if ($allMyLastChoice == 'scissors'){
+              ++$scissors;
+            } elseif ($allMyLastChoice == 'paper'){
+              ++$paper;
+            }else {
+              ++$rock;
+            }
+          }
+        }
+        if ($rock > $scissors && $rock > $paper){
+          return parent::rockChoice();
+        }
+        if ($rock < $scissors && $scissors > $paper){
+          return parent::scissorsChoice();
+        }
+        return parent::paperChoice();
         
-        if ($roundtest > 1){
+        /*if ($roundtest > 1){
           if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
              if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
                return $allMySideLastScore[-1];
@@ -81,6 +98,6 @@ class LenejulienPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
         
-        return parent::scissorsChoice();            
+        return parent::scissorsChoice();      */      
   }
 };
