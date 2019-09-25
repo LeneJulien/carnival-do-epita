@@ -62,20 +62,21 @@ class LenejulienPlayer extends Player
 */
         
 
+        # check deux choice avant et donner la valeur improbable sinon papier
         if ($roundtest > 1){
           if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
              if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
-               return $allMySideLastScore[-1];
+               return $allMySideLastScore[-2];
              } else if ($allMySideLastScore[-2] < $allOpponentSideLastScore[-2]) {
-              return $allMySideLastScore[-2];
+              return $allMySideLastScore[-1];
             } else {
               return parent::paperChoice();
             }
           } else if ($allMySideLastScore[-1] < $allOpponentSideLastScore[-1]){
             if ($allMySideLastScore[-2] > $allOpponentSideLastScore[-2]){
-              return $allMySideLastScore[-1];
-            } else if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
               return $allMySideLastScore[-2];
+            } else if ($allMySideLastScore[-1] > $allOpponentSideLastScore[-1]){
+              return $allMySideLastScore[-1];
             } else {
               return parent::paperChoice();
             }
