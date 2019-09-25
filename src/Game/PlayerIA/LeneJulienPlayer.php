@@ -17,6 +17,18 @@ class PaperPlayer extends Player
 
     public function getChoice()
     {
+
+        $mySideLastChoice = $this->result->getLastChoiceFor($this->mySide);
+        $opponentSideLastChoice = $this->result->getLastChoiceFor($this->opponentSide);
+        $mySideLastScore = $this->result->getLastScoreFor($this->mySide);
+        $opponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
+
+        if ($mySideLastScore > $opponentSideLastScore){
+          return parent::$mySideLastChoice;
+        } else {
+          return parent::$opponentSideLastChoice;
+        }
+
         // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
         // How to get the opponent Last Choice ?    $this->result->getLastChoiceFor($this->opponentSide) -- if 0 (first round)
