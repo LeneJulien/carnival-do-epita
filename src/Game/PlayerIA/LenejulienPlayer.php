@@ -49,7 +49,7 @@ class LenejulienPlayer extends Player
             }else {
               --$rock;
             }
-          } 
+          }
         }
 
         if ($rock > $scissors && $rock > $paper){
