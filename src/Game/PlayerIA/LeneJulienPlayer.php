@@ -9,7 +9,7 @@ use Hackathon\Game\Result;
  * @author Robin
  *
  */
-class PaperPlayer extends Player
+class LenejulienPlayer extends Player
 {
     protected $mySide;
     protected $opponentSide;
@@ -23,11 +23,14 @@ class PaperPlayer extends Player
         $mySideLastScore = $this->result->getLastScoreFor($this->mySide);
         $opponentSideLastScore = $this->result->getLastScoreFor($this->opponentSide);
 
+        print($mySideLastChoice);
+        if ($mySideLastChoice == 0){
         if ($mySideLastScore > $opponentSideLastScore){
-          return parent::$mySideLastChoice;
+          #return $mySideLastChoice;
         } else {
-          return parent::$opponentSideLastChoice;
+          #return $opponentSideLastChoice;
         }
+      }
 
         // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
